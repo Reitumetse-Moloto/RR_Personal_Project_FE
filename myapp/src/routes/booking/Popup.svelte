@@ -1,13 +1,6 @@
 <!-- Popup.svelte -->
 <script>
-    /**
-   * @type {any}
-   */
-     export let message;
-    /**
-   * @type {() => void}
-   */
-     export let onClose;
+    let { message, onClose } = $props();
   
     function closePopup() {
       onClose();
@@ -17,7 +10,7 @@
   <div class="popup-container">
     <div class="popup">
       <p>{message}</p>
-      <button on:click={closePopup}>Close</button>
+      <button onclick={closePopup}>Close</button>
     </div>
   </div>
   

@@ -42,7 +42,6 @@
 
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<body>
   <div class="sidebar">
     <div class="logo-details">
       <span class="logo_name">Admin Service</span>
@@ -128,36 +127,42 @@
       <button class="sort" on:click={sortBookings}>Sort by Date</button>
       </div>
       <table>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>ID Number</th>
-          <th>Gender</th>
-          <th>Cellphone</th>
-          <th>Email</th>
-          <th>Civic Service</th>
-          <th>Date & Time</th>
-        {#if errorMessage}
-          <h2>{errorMessage}</h2>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>ID Number</th>
+            <th>Gender</th>
+            <th>Cellphone</th>
+            <th>Email</th>
+            <th>Civic Service</th>
+            <th>Date & Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#if errorMessage}
+            <tr><td colspan="8"><h2>{errorMessage}</h2></td></tr>
           {:else}
-          {#if booking && booking.length > 0}
-          {#each booking as bookings }
-        <tr>
-          <td>{bookings.first_Name}</td>
-          <td>{bookings.last_Name}</td>
-          <td>{bookings.id_Number}</td>
-          <td>{bookings.gender}</td>
-          <td>{bookings.cellphone_Number}</td>
-          <td>{bookings.email}</td>
-          <td>{bookings.civic_Service}</td>
-          <td>{bookings.dateTime}</td>
-        </tr><br/>
-        {/each}
-          {:else if booking}
-            <h2>No bookings found</h2>
-          {:else}
-            <h2>Loading...</h2>
+            {#if booking && booking.length > 0}
+              {#each booking as bookings}
+                <tr>
+                  <td>{bookings.first_Name}</td>
+                  <td>{bookings.last_Name}</td>
+                  <td>{bookings.id_Number}</td>
+                  <td>{bookings.gender}</td>
+                  <td>{bookings.cellphone_Number}</td>
+                  <td>{bookings.email}</td>
+                  <td>{bookings.civic_Service}</td>
+                  <td>{bookings.dateTime}</td>
+                </tr>
+              {/each}
+            {:else if booking}
+              <tr><td colspan="8"><h2>No bookings found</h2></td></tr>
+            {:else}
+              <tr><td colspan="8"><h2>Loading...</h2></td></tr>
+            {/if}
           {/if}
-          {/if}
+        </tbody>
       </table>
     </div>
     
@@ -206,7 +211,6 @@
  <p class="footer-company-name">Department of Home Affairs © 2023</p>
   </section>
 
-</body>
   
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');

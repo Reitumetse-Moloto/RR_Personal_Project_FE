@@ -25,7 +25,7 @@
             <p>Visit the nearest Home Affairs Branch and provide the above reference.</p>
             <p>A Reminder: Bring the required documents along with you.</p>
         </div>
-        <button class="home" on:click={() => window.location.href='/home'} >Back To Home</button>
+        <button class="home" onclick={() => window.location.href='/home'} >Back To Home</button>
     </div>
 
 </body>

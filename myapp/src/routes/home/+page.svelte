@@ -2,12 +2,50 @@
 	import Footer from "../Footer.svelte";
   import Header from "../Header.svelte";
 
+  import { onMount } from 'svelte';
+
   function scrollToAbout(): void {
-  const aboutSection = document.querySelector<HTMLElement>('#about');
-  if (aboutSection !== null) {
-    aboutSection.scrollIntoView({ behavior: 'smooth' });
+    const aboutSection = document.querySelector<HTMLElement>('#about');
+    if (aboutSection !== null) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }
-}
+
+  onMount(() => {
+    // Modal Image Gallery
+    const onClick = (element: any) => {
+      const img01 = document.getElementById("img01") as HTMLImageElement;
+      const modal01 = document.getElementById("modal01");
+      const captionText = document.getElementById("caption");
+      if (img01) img01.src = element.src;
+      if (modal01) modal01.style.display = "block";
+      if (captionText) captionText.innerHTML = element.alt;
+    }
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    const mySidebar = document.getElementById("mySidebar");
+
+    const w3_open = () => {
+      if (mySidebar) {
+        if (mySidebar.style.display === 'block') {
+          mySidebar.style.display = 'none';
+        } else {
+          mySidebar.style.display = 'block';
+        }
+      }
+    }
+
+    // Close the sidebar with the close button
+    const w3_close = () => {
+      if (mySidebar) mySidebar.style.display = "none";
+    }
+    
+    // Assign to window only if necessary for inline handlers, 
+    // but better to use Svelte event listeners.
+    (window as any).onClick = onClick;
+    (window as any).w3_open = w3_open;
+    (window as any).w3_close = w3_close;
+  });
 </script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -87,7 +125,6 @@ body {
 
 </style>
 
-<body>
 
 <!-- Navbar (sit on top) -->
 <Header/>
@@ -97,17 +134,10 @@ body {
   <div class="w3-container w3-white" style="padding:128px 16px; height:800px" id="header">
 	<div class="w3-row-padding">
 	  <div class="w3-col m6" id="welcome">
-<<<<<<< HEAD
 		 <h2>WELCOME TO e-HOME AFFAIRS</h2>
 		 <p>The Department of Home Affairs is waging a war against long queues. As such we are introducing the Branch Appointment Booking System or BABS.</p>
 		 <p>Citizens are encouraged to make use of the online booking system because in the near future, selected Home Affairs offices will process smart ID and passport applications only for clients who have booked an appointment through the Branch Appointment System.</p>
-     <button class="aboutbutton" on:click={scrollToAbout}>Read More Below</button>
-=======
-		<h2>WELCOME TO e-HOME AFFAIRS</h2>
-		<p>The Department of Home Affairs is waging a war against long queues. As such we are introducing the Branch Appointment Booking System or BABS.</p>
-		<p>Citizens are encouraged to make use of the online booking system because in the near future, selected Home Affairs offices will process smart ID and passport applications only for clients who have booked an appointment through the Branch Appointment System.</p>
-    <button class="aboutbutton" on:click={scrollToAbout}>Read More Below</button>
->>>>>>> 33954db303405c189c288a322094a82efb611bc5
+     <button class="aboutbutton" onclick={scrollToAbout}>Read More Below</button>
 	  </div>
 	  <div class="w3-col m6" >
 		 <img class="w3-image w3-round-large" id="image" src="https://img.freepik.com/free-vector/digital-device-users-spending-time-together_74855-5234.jpg?w=1380&t=st=1683473053~exp=1683473653~hmac=c3d580977998ed883b205d34053f581921c1bcf495bd3a27743b75ed89d1718c" alt="Home_Image" width="700" height="100">
@@ -181,7 +211,7 @@ body {
           <h3>Smart Card</h3>
           <p class="w3-opacity">Smart Card</p>
           <p>Click on the button below to Book a slot for an ID Smart Card</p>
-          <p><button class="w3-button w3-orange w3-block" on:click={() => window.location.href='/booking'}>Book</button></p>
+          <p><button class="w3-button w3-orange w3-block" onclick={() => window.location.href='/booking'}>Book</button></p>
         </div>
       </div>
     </div>
@@ -192,7 +222,7 @@ body {
           <h3>Passport</h3>
           <p class="w3-opacity">Passport</p>
           <p>Click on the button below Book a Slot for a Passport</p>
-          <p><button class="w3-button w3-orange w3-block" on:click={() => window.location.href='/booking'}> Book</button></p>
+          <p><button class="w3-button w3-orange w3-block" onclick={() => window.location.href='/booking'}> Book</button></p>
         </div>
       </div>
     </div>
@@ -284,30 +314,3 @@ body {
 <!-- Footer -->
 <Footer/>
  
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
-
-</body>

@@ -48,7 +48,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<body>
 
 		<div class="login_box">
 			<div class="left">
@@ -57,11 +56,11 @@
 						<h3>WELCOME TO SECURE SERVICES</h3>
 						<input type="text" name="username" placeholder="USERNAME" required>
 						<input type="text" name="idNumber" placeholder="SA ID NUMBER" required>
-						<button class="submit"on:click={userLogin} >LOGIN</button>
+      <button class="submit" onclick={userLogin}>LOGIN</button>
             <h4 class="OR">OR</h4>
             <h6>Login as Admin:</h6>
             <input type="password" name="password" placeholder="Enter Password" required>
-            <button class="submit" on:click={admin}>ADMIN LOGIN</button>
+            <button class="submit" onclick={admin}>ADMIN LOGIN</button>
 					</form>
           {#if showModal}
   <div class="error-modal">
@@ -69,7 +68,7 @@
       <p>
         <i class="fas fa-exclamation-triangle custom-icon"></i> 
         {errorMessage}</p>
-      <button on:click={closeErrorModal}>Close</button>
+      <button onclick={closeErrorModal}>Close</button>
     </div>
   </div>
 {/if}
@@ -84,7 +83,6 @@
 			</div>
 		</div>
  
-</body>
 
   <style>
     /* Style for error modal */

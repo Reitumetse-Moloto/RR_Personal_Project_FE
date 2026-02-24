@@ -87,7 +87,7 @@
 }
 .footer-distributed .footer-center p a{
 	color:  #F89D07;
-	text-decoration: none;;
+	text-decoration: none;
 }
 .footer-distributed .footer-links a:before {
   content: "|";

@@ -31,8 +31,6 @@
         civic_Service: '',
         dateTime: ''
     }
-<<<<<<< HEAD
-=======
     let showModal = false;
   let errorMessage = "";
 
@@ -44,7 +42,6 @@
   function closeErrorModal() {
     showModal = false;
   }
->>>>>>> 33954db303405c189c288a322094a82efb611bc5
     //form validation and API calls
     function formHandler(event: Event){
         event.preventDefault()
@@ -118,7 +115,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<body>
 
     <div class="left">
         
@@ -143,31 +139,20 @@
                 <input type="radio" id="male" name="Gender" value="Male" required bind:group={postData.gender}>
                 
                 <label for="css" class="female">Female</label><br/>
-<<<<<<< HEAD
-                <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
-=======
                 <input type="radio" id="female" name="Gender" value="Female" required bind:group={postData.gender}>
->>>>>>> 33954db303405c189c288a322094a82efb611bc5
                 <hr class="custom-horizontal-line">
 
                 <label for="civicService" class="civic">Civic Service:</label>
                 <label for="html" class="id">ID</label>
-<<<<<<< HEAD
-                <input type="radio" id="id" name="id" value="ID" bind:group={postData.civic_Service}>
-                
-                <label for="css" class="passport">Passport</label><br/>
-                <input type="radio" id="passport" name="passport" value="Passport" bind:group={postData.civic_Service}>
-=======
                 <input type="radio" id="id" name="id" value="ID" required bind:group={postData.civic_Service}>
                 
                 <label for="css" class="passport">Passport</label><br/>
                 <input type="radio" id="passport" name="passport" value="Passport" required bind:group={postData.civic_Service}>
->>>>>>> 33954db303405c189c288a322094a82efb611bc5
                 
                 <label for="DateTime">Choose Date and Time:</label>
                  <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.dateTime} placeholder='Select date and time' autoclose></SveltyPicker>
 
-				<button class="submit" on:click={formHandler} >BOOK</button>
+    <button class="submit" onclick={formHandler}>BOOK</button>
                 {#if showPopup}
                 <Popup message={popupMessage} onClose={handlePopupClose} />
                 {/if}
@@ -178,7 +163,7 @@
       <p>
         <i class="fas fa-exclamation-triangle custom-icon"></i> 
         {errorMessage}</p>
-      <button on:click={closeErrorModal}>Close</button>
+      <button onclick={closeErrorModal}>Close</button>
     </div>
   </div>
 {/if}
@@ -201,7 +186,6 @@
         </div>
         </div>
     </header>
-</body>
 
 <style>
 body{
@@ -223,8 +207,6 @@ body::-webkit-scrollbar-thumb {
   border: none; 
   border-top: 1px solid #F89D07; 
 }
-<<<<<<< HEAD
-=======
  /* Style for error modal */
  .error-modal {
     position: fixed;
@@ -272,7 +254,6 @@ body::-webkit-scrollbar-thumb {
     border-radius: 50%;
     margin-right: 10px;
   }
->>>>>>> 33954db303405c189c288a322094a82efb611bc5
 .male{
   margin-left: 285px;
 }
