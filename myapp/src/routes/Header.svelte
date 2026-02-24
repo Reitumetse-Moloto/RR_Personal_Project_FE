@@ -1,6 +1,7 @@
 <script lang="ts">
 </script>
 
+
 <header class="home-header">
 	<!-- Navbar (sit on top) -->
     <div class="w3-top">
@@ -23,7 +24,6 @@
 	</div>
     </div>
 </header>
-
 <style>
 	img{
 		margin-left: 20px;
@@ -38,7 +38,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		z-index: black;
+		z-index: 1000;
 	}
 	a{
 		font-size: medium;
